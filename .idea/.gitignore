@@ -309,4 +309,38 @@ poetry.toml
 # ruff
 .ruff_cache/
 
-# End of https://www.toptal.com/developers/gitignore/api/java,intellij
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# End of https://www.toptal.com/developers/gitignore/api/java,intellij,c++
