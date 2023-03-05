@@ -16,7 +16,9 @@ public class NM1_15649 {
         FastReader scan = new FastReader();
         N = scan.nextInt();
         M = scan.nextInt();
+        //selected는 M까지 돌고, used는 N까지 돌아야 함
         selected = new int[M+1];
+        used = new int[N+1];
     }
 
 // M개를 고름
