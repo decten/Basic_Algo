@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="게임 개발">
-      <change afterPath="$PROJECT_DIR$/Java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="N과M(3)_15651_완전탐색" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,6 +189,7 @@
       <workItem from="1678005478491" duration="482000" />
       <workItem from="1678005987901" duration="128000" />
       <workItem from="1678006126989" duration="46000" />
+      <workItem from="1678019464896" duration="35000" />
     </task>
     <task id="LOCAL-00001" summary="이전 문제 풀이">
       <created>1674889724589</created>
@@ -242,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677841796470</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="N과M(3)_15651_완전탐색">
+      <created>1678019482128</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678019482128</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +271,8 @@
     <MESSAGE value="템플릿 변동 사항" />
     <MESSAGE value="1이 될 때까지" />
     <MESSAGE value="게임 개발" />
-    <option name="LAST_COMMIT_MESSAGE" value="게임 개발" />
+    <MESSAGE value="N과M(3)_15651_완전탐색" />
+    <option name="LAST_COMMIT_MESSAGE" value="N과M(3)_15651_완전탐색" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
