@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="1이 될 때까지">
-      <change afterPath="$PROJECT_DIR$/Python/이코테/게임 개발.py" afterDir="false" />
+    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="게임 개발">
+      <change afterPath="$PROJECT_DIR$/Java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,19 +28,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hyeon/OneDrive/Desktop/Basic_Algo",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hyeon/OneDrive/Desktop/Basic_Algo/Java&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\Python\제코베" />
@@ -49,7 +49,7 @@
       <recent name="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\CPP" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.1이 될 때까지">
     <configuration name="두 배열의 원소 교체 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Basic_Algo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,7 +85,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\Python\두 배열의 원소 교체.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\Python\이코테\두 배열의 원소 교체.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,7 +107,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\Python\이코테\두 배열의 원소 교체.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\Python\두 배열의 원소 교체.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,7 +187,11 @@
       <workItem from="1677311110081" duration="1272000" />
       <workItem from="1677313897969" duration="607000" />
       <workItem from="1677743675233" duration="1893000" />
-      <workItem from="1677823392366" duration="5465000" />
+      <workItem from="1677823392366" duration="5486000" />
+      <workItem from="1677846470411" duration="2709000" />
+      <workItem from="1678005478491" duration="482000" />
+      <workItem from="1678005987901" duration="128000" />
+      <workItem from="1678006126989" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="이전 문제 풀이">
       <created>1674889724589</created>
@@ -231,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677832349548</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="게임 개발">
+      <created>1677841796470</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677841796470</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +265,8 @@
     <MESSAGE value="숫자 카드 게임 풀이" />
     <MESSAGE value="템플릿 변동 사항" />
     <MESSAGE value="1이 될 때까지" />
-    <option name="LAST_COMMIT_MESSAGE" value="1이 될 때까지" />
+    <MESSAGE value="게임 개발" />
+    <option name="LAST_COMMIT_MESSAGE" value="게임 개발" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
