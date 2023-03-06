@@ -11,11 +11,15 @@ public class NM3_15651 {
         FastReader scan = new FastReader();
         N = scan.nextInt();
         M = scan.nextInt();
-        selected = new int[M+1];
+        selected = new int[M+1];//할당과 동시에 0으로 초기화 됨
     }
 
 // M개를 고름
     static void rec_func(int k){
+        /*
+            if문을 돌고 재귀함수에서 빠져나오고, rec_func(k+1) 다음 코드인 selected[k]=0으로 초기화한다
+            rec_func로 열을 채우고, cand로 행을 채우는 셈
+         */
         if (k==M+1){
             //selected[1...M]
             for (int i = 1; i<=M; i++) sb.append(selected[i]).append(' ');
