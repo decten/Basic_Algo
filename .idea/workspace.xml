@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="N과M(1)_used 배열 초기화 수정" />
+    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="N과M(3)_15651_완전탐색_주석 추가" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,19 +25,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hyeon/OneDrive/Desktop/Spring_Project&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/hyeon/OneDrive/Desktop/Basic_Algo",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\Python\제코베" />
@@ -192,6 +192,7 @@
       <workItem from="1678019464896" duration="35000" />
       <workItem from="1678020686136" duration="207000" />
       <workItem from="1678021079088" duration="189000" />
+      <workItem from="1678091474540" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="이전 문제 풀이">
       <created>1674889724589</created>
@@ -263,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678021134655</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="N과M(3)_15651_완전탐색_주석 추가">
+      <created>1678091488138</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678091488138</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +298,8 @@
     <MESSAGE value="N과M(3)_15651_완전탐색" />
     <MESSAGE value="N과M(1)_15651_완전탐색" />
     <MESSAGE value="N과M(1)_used 배열 초기화 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="N과M(1)_used 배열 초기화 수정" />
+    <MESSAGE value="N과M(3)_15651_완전탐색_주석 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="N과M(3)_15651_완전탐색_주석 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
