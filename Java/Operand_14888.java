@@ -22,42 +22,26 @@ public class Operand_14888 {
         max_value = Integer.MIN_VALUE;
         min_value = Integer.MAX_VALUE;
     }
-    static int calculate(){
-        int answer = numbers[0];
-        //order는 연산자의 총 개수인 N-1개가 들어가 있다
-        for (int i = 0; i < N-1; i++) {
-            //answer = numbers[i],operator[i],numbers[i+1]
-            if(order[i] == 1){
-                answer += numbers[i+1];
-            }
-            if(order[i] == 2){
-                answer -= numbers[i+1];
-            }
-            if(order[i] == 3){
-                answer *= numbers[i+1];
-            }
-            if(order[i] == 4){
-//                if(answer==0) answer = 0;
-//                if(answer < 0){
-//                    int result = Math.abs(answer) / numbers[i+1];
-//                    answer = -result;
-//                } else{
-//                    int result = answer / numbers[i+1];
-//                    answer = result;
-//                }
-                //그냥 나눗셈 쓰면 되는거였음
-                answer /= numbers[i+1];
-            }
-
+    static int calculate(int operand1, int operator, int operand2){
+        if(operator == 1){
+            return operand1 + operand2;
         }
-        return answer;
+        if(operator == 2){
+            return operand1 - operand2;
+        }
+        if(operator == 3){
+            return operand1 * operand2;
+        }
+        if(operator == 4){
+            return operand1 / operand2;
+        }
+        return 0;
     }
     //개수별로 받은 연산자를 1-더하기/2-뺄셈/3-곱셈/4-나눗셈 이런식으로 인덱싱 해서 순열을 만든다
     //만든 순열을 order에 저장, order는 1-더하기/2-뺄셈/3-곱셈/4-나눗셈으로 주르륵 들어가 있음
     //order=[1,4,2...]->N-1개
-    static void rec_func(int k){
+    static void rec_func(int k, int value){
         if(k==N-1){
-            int value = calculate();
             max_value = Math.max(max_value, value);
             min_value = Math.min(min_value, value);
         }
@@ -66,10 +50,8 @@ public class Operand_14888 {
             for (int candi = 0; candi < 4 ; candi++) {
                 if (operand[candi] >= 1){
                     operand[candi]--;
-                    order[k] = candi+1;//order에는 1부터 집어넣음
-                    rec_func(k+1);
+                    rec_func(k+1, calculate(value, candi+1, numbers[k+1]));
                     operand[candi]++;
-                    order[k] = 0;
                 }
             }
         }
@@ -77,7 +59,7 @@ public class Operand_14888 {
     public static void main(String[] args) {
         input();
         /*calculate();calculate와 recursive 함수를 따로 둬야 함*/
-        rec_func(0);
+        rec_func(0,numbers[0]);
 
         sb.append(max_value).append('\n').append(min_value);
         System.out.println(sb.toString());
