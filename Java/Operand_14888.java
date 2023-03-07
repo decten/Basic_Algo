@@ -16,6 +16,8 @@ public class Operand_14888 {
         for (int i = 0; i < 4; i++) {
             operand[i] = scan.nextInt();
         }
+        //order에는 N-1개의 배열 생성
+        order = new int[N];
         //Max, Min 초기화 방법 몰랐음
         max_value = Integer.MIN_VALUE;
         min_value = Integer.MAX_VALUE;
