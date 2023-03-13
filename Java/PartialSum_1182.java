@@ -31,8 +31,7 @@ public class PartialSum_1182 {
 
     public static void main(String[] args) {
         input();
-        //왜 k=0, numbers[k+1]은 안 될까
-        rec_func(1, 0);
+        rec_func(0, 0);
 
         //진부분집합만
         if(S==0){
