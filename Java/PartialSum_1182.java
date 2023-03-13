@@ -31,6 +31,7 @@ public class PartialSum_1182 {
 
     public static void main(String[] args) {
         input();
+        //해결
         rec_func(0, 0);
 
         //진부분집합만
