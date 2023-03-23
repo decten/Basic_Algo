@@ -3,7 +3,7 @@ import java.sql.Array;
 import java.util.*;
 
 public class Password_1759 {
-    static int N, M, vowel, consonant;
+    static int N, M, vowel, consonant, candi;
     static StringBuilder stringBuilder;
     static char[] chars;
     static int[] selected;
@@ -20,7 +20,8 @@ public class Password_1759 {
         for (int i = 0; i < N; i++) {
             chars[i] = tokens[i].charAt(0);
         }
-
+        //정렬 해줘야 함
+        Arrays.sort(chars,0,N);
     }
 
     static void rec_func(int k){
@@ -34,7 +35,9 @@ public class Password_1759 {
                 stringBuilder.append('\n');
             }
         }else{
-            for (int candi = selected[k]; candi < M; candi++) {
+            if(k==0) candi =0;
+            else candi = selected[k-1]+1;
+            for (;  candi < M; candi++) {
                 selected[k]=candi;
                 rec_func(k+1);
                 selected[k]=0;
