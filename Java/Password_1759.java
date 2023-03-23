@@ -3,15 +3,33 @@ import java.sql.Array;
 import java.util.*;
 
 public class Password_1759 {
-
+    static int L, C;
+    static StringBuilder stringBuilder;
+    static String[] strings;
     static void input(){
         FastReader scanner = new FastReader();
-        ArrayList <String> stringArrayList= new ArrayList();
-
+        L = scanner.nextInt();
+        C = scanner.nextInt();
+        for (int i = 0; i < C; i++) {
+            strings[i] = scanner.next();
+        }
+    }
+    static void rec_func(int k){
+        if(k==L){
+            if(!stringBuilder.toString().matches("^[aeiou]*$")) stringBuilder.setLength(0);
+        }else{
+            stringBuilder.append(strings[k]);
+            rec_func(k+1);
+            stringBuilder.setLength(stringBuilder.length()-1);
+        }
     }
 
     public static void main(String[] args) {
         input();
+        rec_func(0);
+        if (stringBuilder.length() != 0) {
+            System.out.println(stringBuilder.toString());
+        }
     }
 
     static class FastReader{
