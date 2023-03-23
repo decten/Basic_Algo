@@ -3,33 +3,50 @@ import java.sql.Array;
 import java.util.*;
 
 public class Password_1759 {
-    static int L, C;
+    static int N, M, vowel, consonant;
     static StringBuilder stringBuilder;
-    static String[] strings;
+    static char[] chars;
+    static int[] selected;
     static void input(){
         FastReader scanner = new FastReader();
-        L = scanner.nextInt();
-        C = scanner.nextInt();
-        for (int i = 0; i < C; i++) {
-            strings[i] = scanner.next();
+        stringBuilder = new StringBuilder();
+        N = scanner.nextInt();
+        M = scanner.nextInt();
+        chars = new char[N+1];
+        selected = new int[M+1];
+        //반복문 안 쓰고 이런 식으로!
+        String[] tokens = scanner.nextLine().split(" ");
+        //입력 받은 string을 다시 char로 변환
+        for (int i = 0; i < N; i++) {
+            chars[i] = tokens[i].charAt(0);
         }
+
     }
+
     static void rec_func(int k){
-        if(k==L){
-            if(!stringBuilder.toString().matches("^[aeiou]*$")) stringBuilder.setLength(0);
+        if(k==N){
+            for (int i = 0; i < k; i++) {
+                if(String.valueOf(chars[selected[i]]).matches("^[aeiou]*$")) vowel++;
+                else consonant++;
+            }
+            if(vowel>=1 && consonant>=2){
+                for (int i = 0; i < N; i++) stringBuilder.append(chars[selected[i]]);
+                stringBuilder.append('\n');
+            }
         }else{
-            stringBuilder.append(strings[k]);
-            rec_func(k+1);
-            stringBuilder.setLength(stringBuilder.length()-1);
+            for (int candi = selected[k]; candi < M; candi++) {
+                selected[k]=candi;
+                rec_func(k+1);
+                selected[k]=0;
+            }
+
         }
     }
 
     public static void main(String[] args) {
         input();
         rec_func(0);
-        if (stringBuilder.length() != 0) {
-            System.out.println(stringBuilder.toString());
-        }
+        System.out.print(stringBuilder.toString());
     }
 
     static class FastReader{
@@ -40,10 +57,11 @@ public class Password_1759 {
             bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         }
         FastReader(String s) throws FileNotFoundException {
-            bufferedReader = new BufferedReader(new FileReader(s));
+            bufferedReader = new BufferedReader(new FileReader(new File(s)));
         }
         String next(){
-            while(!stringTokenizer.hasMoreElements() || stringTokenizer== null){
+            //순서 바뀌면 에러 발생
+            while(stringTokenizer== null||!stringTokenizer.hasMoreElements() ){
                 try{
                     stringTokenizer = new StringTokenizer(bufferedReader.readLine());
                 } catch (IOException e) {
