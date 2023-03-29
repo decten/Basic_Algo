@@ -3,7 +3,7 @@ import java.sql.Array;
 import java.util.*;
 
 public class Password_1759 {
-    static int N, M, vowel, consonant;
+    static int N, M;
     static StringBuilder stringBuilder;
     static char[] chars;
     static int[] selected;
@@ -26,6 +26,8 @@ public class Password_1759 {
 
     static void rec_func(int k){
         if(k==N){
+            int vowel = 0;
+            int consonant = 0;
             for (int i = 0; i < N; i++) {
                 if(String.valueOf(chars[selected[i]]).matches("^[aeiou]*$")) vowel++;
                 else consonant++;
