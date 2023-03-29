@@ -3,7 +3,7 @@ import java.sql.Array;
 import java.util.*;
 
 public class Password_1759 {
-    static int N, M, vowel, consonant, candi;
+    static int N, M, vowel, consonant;
     static StringBuilder stringBuilder;
     static char[] chars;
     static int[] selected;
@@ -12,21 +12,21 @@ public class Password_1759 {
         stringBuilder = new StringBuilder();
         N = scanner.nextInt();
         M = scanner.nextInt();
-        chars = new char[N+1];
-        selected = new int[M+1];
+        chars = new char[M+1];
+        selected = new int[N+1];
         //반복문 안 쓰고 이런 식으로!
         String[] tokens = scanner.nextLine().split(" ");
         //입력 받은 string을 다시 char로 변환
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < M; i++) {
             chars[i] = tokens[i].charAt(0);
         }
         //정렬 해줘야 함
-        Arrays.sort(chars,0,N);
+        Arrays.sort(chars,0,M);
     }
 
     static void rec_func(int k){
         if(k==N){
-            for (int i = 0; i < k; i++) {
+            for (int i = 0; i < N; i++) {
                 if(String.valueOf(chars[selected[i]]).matches("^[aeiou]*$")) vowel++;
                 else consonant++;
             }
@@ -35,8 +35,8 @@ public class Password_1759 {
                 stringBuilder.append('\n');
             }
         }else{
-            if(k==0) candi =0;
-            else candi = selected[k-1]+1;
+            int candi = 0;
+            if(k!=0) candi = selected[k-1]+1;
             for (;  candi < M; candi++) {
                 selected[k]=candi;
                 rec_func(k+1);
