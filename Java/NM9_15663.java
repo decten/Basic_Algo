@@ -10,9 +10,9 @@ public class NM9_15663 {
         FastReader scanner = new FastReader();
         N = scanner.nextInt();
         M = scanner.nextInt();
-        input_array = new int[N+1];
+        input_array = new int[N];
         selected = new int[M+1];
-        used = new int[M+1];
+        used = new int[N+1];
         for (int i = 0; i < N; i++) {
             input_array[i] = scanner.nextInt();
         }
@@ -25,15 +25,15 @@ public class NM9_15663 {
         }else{
             int last_candi = 0;
             for (int candi = 0; candi < N; candi++) {
-                if (used[k]==1) continue;
+                if (used[candi]==1) continue;
                 if (last_candi == input_array[candi]) continue;
 
                 selected[k] = input_array[candi];
                 last_candi = input_array[candi];
-                used[k] = 1;
+                used[candi] = 1;
                 rec_func(k+1);
                 selected[k] = 0;
-                used[k] = 0;
+                used[candi] = 0;
             }
         }
     }
