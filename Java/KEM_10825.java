@@ -9,6 +9,15 @@ public class KEM_10825 {
 
         }
     }
+    static class Elem implements Comparable<Elem>{
+    public String name;
+    public int korean, english, math;
+        @Override
+        public int compareTo(Elem o) {
+
+            return 0;
+        }
+    }
     public static void main(String args[]){
         input();
     }
