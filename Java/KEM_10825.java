@@ -2,24 +2,42 @@ import java.util.*;
 import java.io.*;
 
 public class KEM_10825 {
+    static int N;
+    static Elem[] a;
+    static StringBuilder sb = new StringBuilder();
     static void input(){
         FastReader scan = new FastReader();
-        int N = scan.nextInt();
+        N = scan.nextInt();
+        a = new Elem[N];
         for (int i = 0; i < N; i++) {
-
+            a[i] = new Elem();
+            a[i].name = scan.next();
+            a[i].korean = scan.nextInt();
+            a[i].english = scan.nextInt();
+            a[i].math = scan.nextInt();
         }
+    }
+    static void answer(){
+        Arrays.sort(a);
+        for (int i = 0; i < N; i++) {
+            sb.append(a[i].name).append('\n');
+        }
+        System.out.println(sb.toString());
     }
     static class Elem implements Comparable<Elem>{
     public String name;
     public int korean, english, math;
         @Override
-        public int compareTo(Elem o) {
-
-            return 0;
+        public int compareTo(Elem other) {
+            if(korean != other.korean) return other.korean - korean;
+            if(english != other.english) return english - other.english;
+            if(math != other.math) return other.math - math;
+            return name.compareTo(other.name);
         }
     }
     public static void main(String args[]){
         input();
+        answer();
     }
     public static class FastReader{
         BufferedReader br;
