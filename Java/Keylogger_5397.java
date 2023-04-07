@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class keylogger_5397{
+public class Keylogger_5397 {
     public static void main(String[] args) {
         int testCase;
         String input = new String();
