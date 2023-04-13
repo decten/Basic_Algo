@@ -1,63 +1,86 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class FileName_20291 {
+    static FastReader scan = new FastReader();
+
     static int N;
-    static String[] a;
-    static StringBuilder sb = new StringBuilder();
-    static void input(){
-        FastReader scan = new FastReader();
+    static String[] A;
+
+    static void input() {
         N = scan.nextInt();
-        a = new String[N];
+        A = new String[N];
         for (int i = 0; i < N; i++) {
-            a[i] = scan.nextLine().split("\\.")[1];
+            A[i] = scan.next().split("\\.")[1];
         }
+
     }
+
     static void answer(){
-        Arrays.sort(a);
-        for (int i = 0; i < N; i++) {
-            int cnt = 1, j=i+1;
-            for (;j < N; j++) {
-                if(a[j].compareTo(a[i])==0) cnt++;
-                else break;
+        Arrays.sort(A);
+        Map <String, Integer> hashMap = new LinkedHashMap<>();
+        hashMap.put(A[0],1);
+        for (int i = 1; i < N; i++) {
+            if(hashMap.containsKey(A[i])){
+                hashMap.put(A[i],hashMap.get(A[i])+1);
+                continue;
             }
-            sb.append(a[i]).append(' ').append(cnt).append('\n');
-            i=j;
+            hashMap.put(A[i],1);
         }
-        System.out.println(sb.toString());
+        hashMap.forEach((key,value)->{
+            System.out.println(key+" "+value);
+        });
     }
-    public static void main(String args[]){
+    public static void main(String[] args) {
         input();
         answer();
+
     }
-    public static class FastReader{
+
+
+    static class FastReader {
         BufferedReader br;
         StringTokenizer st;
-        FastReader(){
+
+        public FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
-        String next(){
-            while(st==null||!st.hasMoreElements()){
-                try{
+
+        public FastReader(String s) throws FileNotFoundException {
+            br = new BufferedReader(new FileReader(new File(s)));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
                     st = new StringTokenizer(br.readLine());
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             return st.nextToken();
         }
-        String nextLine(){
-            String str = "";
-                try{
-                    str = br.readLine();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
 
-            return str;
-        }
-        int nextInt(){
+        int nextInt() {
             return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
         }
     }
 }
