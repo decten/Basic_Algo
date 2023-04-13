@@ -25,7 +25,7 @@ public class Nugu {
         Arrays.sort(B);
         int count = 0;
         for (int i = 0; i < N; i++) {
-            if(bin_search(B,i,M-1,A[i])) {
+            if(bin_search(B,0,M-1,A[i])) {
                 count++;
                 sb.append(A[i]).append('\n');
             }
