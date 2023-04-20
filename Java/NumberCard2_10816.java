@@ -20,24 +20,30 @@ public class NumberCard2_10816 {
     }
     static int upper_bound(int k){
         int left = 0;
-        int right = M-1;
-        int result = left;
+        int right = N-1;
+        int result = right+1;
         while(right>=left){
             int mid = (left+right)/2;
-            if(a[mid] > k) return mid;
-            else left = mid;
+            if(a[mid] > k) {
+                result = mid;
+                right = mid-1;
+            }
+            else left = mid+1;
         }
         return result;
     }
     static int lower_bound(int k){
         int left = 0;
-        int right = M-1;
-        int result = right;
+        int right = N-1;
+        int result = left;
 
         while(right>=left){
             int mid = (left+right)/2;
-            if(a[mid] >= k) return mid;
-            else left = mid;
+            if(a[mid] >= k) {
+                result = mid;
+                right = mid-1;
+            }
+            else left = mid+1;
         }
         return result;
     }
