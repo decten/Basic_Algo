@@ -12,35 +12,34 @@ public class CuttingTree_2805 {
         for (int i = 0; i < N; i++) {
             a[i] = scan.nextInt();
         }
-    }
-    static int bin_search(int k){
-        int left = 0;
-        int right = N-1;
-        while(right>=left){
-
-        }
-        return right;
-    }
-    static void answer(){
-        int result = 0;
         Arrays.sort(a);
-        int ans = a[N-1];
-
-        while(result != M){
-            result = 0;
-            for (int i = 0; i < N; i++) {
-                if(a[i]< ans) continue;
-                result+=a[i]-ans;
-            }
-            ans--;
+    }
+    static boolean determination(int H){
+        long sum = 0;
+        for (int i = 0; i < N; i++) {
+            sum += a[i]-H;
         }
-        ans++;
+        return sum >= M;
+    }
+    static void bin_search(){
+        long ans = 0;
+        long left = 0;
+        long right = M;
+        while(right>=left){
+            int mid = (int) (left+right)/2;
+            if(determination(mid)){
+                ans = mid;
+                left = mid+1;
+            }else{
+                right = mid-1;
+            }
+        }
         System.out.println(ans);
     }
 
     public static void main(String[] args) {
         input();
-        answer();
+        bin_search();
     }
     static class FastReader{
         BufferedReader br;
