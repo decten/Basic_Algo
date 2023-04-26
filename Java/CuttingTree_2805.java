@@ -17,14 +17,16 @@ public class CuttingTree_2805 {
     static boolean determination(int H){
         long sum = 0;
         for (int i = 0; i < N; i++) {
-            sum += a[i]-H;
+            if(a[i]>H){
+                sum += a[i]-H;
+            }
         }
         return sum >= M;
     }
     static void bin_search(){
         long ans = 0;
         long left = 0;
-        long right = M;
+        long right = 2000000000;
         while(right>=left){
             int mid = (int) (left+right)/2;
             if(determination(mid)){
