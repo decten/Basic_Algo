@@ -13,17 +13,31 @@ public class GuitarLesson_2343 {
             a[i] = scan.nextInt();
         }
     }
-    static boolean determination(int k){
+    static boolean determination(long k){
         int cnt=1;
-        return cnt>=M;
+        int sum=0;
+        for (int i = 0; i < N; i++) {
+            sum+=a[i];
+            if(sum>=k){
+                cnt++;
+                sum=a[i];
+            }
+        }
+        return cnt==M;
     }
     static void answer(){
         Arrays.sort(a);
-        long left=0, right=1000000000;
+        long left=0, right=1000000000,ans=0;
         while(right>=left){
-
-
+            long mid = (right+left)/2;
+            if(determination(mid)){
+                left = mid+1;
+                ans = mid;
+            }else{
+                right = mid-1;
+            }
         }
+        System.out.println(ans);
     }
     public static void main(String[] args) {
         input();
