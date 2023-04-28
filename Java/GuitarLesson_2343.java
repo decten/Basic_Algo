@@ -23,21 +23,22 @@ public class GuitarLesson_2343 {
                 sum=a[i];
             }
         }
-        return cnt==M;
+        return cnt<=M;
     }
     static void answer(){
         Arrays.sort(a);
-        long left=0, right=1000000000,ans=0;
+        long left=a[0], right=1000000000,ans=0;
+        for (int i = 0; i < N; i++) left = Math.max(left, a[i]);  // 적어도 제일 긴 녹화본의 길이 만큼은 필요하다!
         while(right>=left){
             long mid = (right+left)/2;
             if(determination(mid)){
-                left = mid+1;
+                right = mid-1;
                 ans = mid;
             }else{
-                right = mid-1;
+                left = mid+1;
             }
         }
-        System.out.println(ans);
+        System.out.println(ans-1);
     }
     public static void main(String[] args) {
         input();
