@@ -23,7 +23,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hyeon/Desktop/Basic_Algo/Java",
+    "last_opened_file_path": "C:/Users/hyeon/OneDrive/Desktop/Basic_Algo/Java",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -37,7 +37,7 @@
       <recent name="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\CPP" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.이코테_1">
     <configuration name="이코테_1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Basic_Algo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,6 +98,7 @@
       <workItem from="1677086633853" duration="4415000" />
       <workItem from="1677122912286" duration="4785000" />
       <workItem from="1678718744616" duration="136000" />
+      <workItem from="1682667952193" duration="106000" />
     </task>
     <task id="LOCAL-00001" summary="이전 문제 풀이">
       <created>1674889724589</created>
