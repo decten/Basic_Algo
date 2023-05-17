@@ -19,26 +19,43 @@ public class HyndaiAuto_Tracing {
     }
 
     static void answer(){
-        int ans = 0;
+        int maxScore = 0;
+        int currentScore = 0;
+        int[] a_cnt = new int[N];
+        int[] b_cnt = new int[N];
 
-        for(int track=0; track<N; track++){
-            int cnt = 1;
-            int a_cnt = 0;
-            int b_cnt = 0;
-
-            for(int date=0; date<=K;date++){
-                if(cnt==K+1) {
-                    ans = Math.max(ans,Math.abs(a_cnt-b_cnt));
-                    break;
-                }
-                if(array[date][track]=='a') a_cnt++;
-                else b_cnt++;
-                cnt++;
-
+        //초기 값 세팅: 0~K-1까지의 개수 계산, 개수 차이 저장, 최대 값 설정
+        for (int date = 0; date < K; date++) {
+            for (int track = 0; track < N; track++) {
+                if(array[date][track]=='a') a_cnt[track]++;
+                else b_cnt[track]++;
             }
         }
+        for (int track = 0; track < N; track++) {
+            currentScore += Math.abs(a_cnt[track]-b_cnt[track]);
+        }
+        maxScore = Math.max(currentScore,maxScore);
 
-        System.out.println(ans);
+        //슬라이딩 윈도우로 점수 계산
+        for (int date = K; date < N; date++) {
+            //이전 시작 행 삭제
+            for (int track = 0; track < N; track++) {
+                if(array[date-K][track]=='a') a_cnt[track]--;
+                else b_cnt[track]--;
+            }
+            //다음 행 추가
+            for (int track = 0; track < N; track++) {
+                if(array[date][track]=='a') a_cnt[track]++;
+                else b_cnt[track]++;
+            }
+            currentScore = 0;
+            for (int track = 0; track < N; track++) {
+                currentScore += Math.abs(a_cnt[track]-b_cnt[track]);
+            }
+            maxScore = Math.max(currentScore,maxScore);
+        }
+
+        System.out.println(maxScore);
     }
 
     public static void main(String args[]){
