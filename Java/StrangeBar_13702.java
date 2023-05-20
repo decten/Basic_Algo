@@ -14,20 +14,21 @@ public class StrangeBar_13702 {
         }
         Arrays.sort(a);
     }
-    static boolean deter(int k){
+    static boolean deter(long k){
         int ans = 0;
+        if(k==0) return false;
         for (int i = 0; i < N; i++) {
             ans += a[i]/k;
         }
         return ans >= M;
     }
     static void bin_search(){
-        int ans = 0;
-        int right = a[N-1];
-        int left = 0;
+        long ans = 0;
+        long right = Integer.MAX_VALUE;
+        long left = 0;
 
         while(right>=left){
-            int mid = (right+left)/2;
+            long mid = (right+left)/2;
             if(deter(mid)){
                 left = mid+1;
                 ans = mid;
