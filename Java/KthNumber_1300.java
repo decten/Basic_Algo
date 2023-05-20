@@ -10,22 +10,20 @@ public class KthNumber_1300 {
         N = scan.nextInt();
         M = scan.nextLong();
     }
-    static boolean multiple_check(int k){
-        int ans = 0;
+    static boolean multiple_check(long k){
+        long ans = 0;
         for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
-                if(k>=i*j) ans++;
-            }
+            ans += Math.min(k/i,N);
         }
         return ans >= M;
     }
     static long bin_search(){
-        int ans = 0;
-        int left = 1;
-        int right = N*N;
+        long ans = 0;
+        long left = 1;
+        long right = (long) N*N;
 
         while(right>=left){
-            int mid = (left+right)/2;
+            long mid = (left+right)/2;
             if(multiple_check(mid)){
                 right = mid-1;
                 ans = mid;
