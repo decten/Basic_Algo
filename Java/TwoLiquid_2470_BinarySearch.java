@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class TwoLiquid_2470 {
+public class TwoLiquid_2470_BinarySearch {
     static int N;
     static int[] A;
     static void input(){
