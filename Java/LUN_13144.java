@@ -3,19 +3,27 @@ import java.io.*;
 
 public class LUN_13144 {
     static int N;
-    static int[] a;
+    static int[] a,count;
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
         a = new int[N+1];
+        count = new int[100000+1];
         for (int i = 1; i <= N; i++) {
             a[i] = scan.nextInt();
         }
     }
     static void answer(){
-        int right=0, count=0, tmp = 0;
-        for (int left = 1; left < N; left++) {
-
+        long ans = 0;
+        for (int left = 1, right=0; left < N; left++) {
+            if(a[right]!=a[left]){
+                count[left]++;
+                right++;
+            }
+            for (int i = 1; i <= N ; i++) {
+                if(count[i]==1) ans++;
+            }
+            count[left]--;
         }
     }
     public static void main(String[] args) {
