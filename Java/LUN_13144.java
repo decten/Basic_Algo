@@ -15,16 +15,14 @@ public class LUN_13144 {
     }
     static void answer(){
         long ans = 0;
-        for (int left = 1, right=0; left < N; left++) {
-            if(a[right]!=a[left]){
-                count[left]++;
-                right++;
+        for (int left = 1, right=0; left <= N; left++) {
+            while(right+1<=N && count[a[right+1]]==0){
+                count[a[++right]]++;
             }
-            for (int i = 1; i <= N ; i++) {
-                if(count[i]==1) ans++;
-            }
-            count[left]--;
+            ans += right-left+1;
+            count[a[left]]--;
         }
+        System.out.println(ans);
     }
     public static void main(String[] args) {
         input();
