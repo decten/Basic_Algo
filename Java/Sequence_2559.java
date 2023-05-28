@@ -15,14 +15,13 @@ public class Sequence_2559 {
         }
     }
     static void answer(){
-        int ans = 0, day = 0, current = 0;
-        for (int left = 0, right=0; left < N; left++) {
-            while (right+1 < N) {
-                day = right-left+1;
-                if(day==K) break;
-                right++;
+        int ans = Integer.MIN_VALUE, day = 0, sum = 0;
+        for (int left = 0, right=0; left+K-1 < N; left++) {
+            while (right+1 <= left+K) {
+                sum += a[right++];
             }
-            ans = Math.max(ans,Arrays.stream(a,left,right+1).sum());
+            ans = Math.max(ans,sum);
+            sum -= a[left];
         }
         System.out.println(ans);
     }
