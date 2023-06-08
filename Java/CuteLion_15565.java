@@ -14,8 +14,27 @@ public class CuteLion_15565 {
             a[i] = scan.nextInt();
         }
     }
+    static void answer(){
+        int ans = N;
+        for (int left = 0, right = 0; left < N; left++) {
+            int cnt = 0;
+            if(a[left]==2) continue;
+            else cnt++;
+            while(right+1<N && a[right]==2){
+                if(a[++right]==1) cnt++;
+                if(cnt==3){
+                    ans = Math.min(ans, right-left+1);
+                    break;
+                }
+            }
+        }
+        if(ans==N) ans = -1;
+
+        System.out.println(ans);
+    }
     public static void main(String[] args) {
         input();
+        answer();
     }
     static class FastReader{
         BufferedReader br;
