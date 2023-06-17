@@ -2,11 +2,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class SteppingStone_programmers {
-    static int bin_search(ArrayList<Integer> rocks){
+    static int bin_search(ArrayList<Integer> rocks, int n){
         int left=0, right=rocks.get(rocks.size()-1), mid = 0;
         while(right>=left){
             mid = (right+left)/2;
-            if(deter(mid,rocks)){
+            if(deter(n, mid,rocks)){
                 left = mid+1;
             }else{
                 right = mid-1;
@@ -14,17 +14,13 @@ public class SteppingStone_programmers {
         }
         return mid;
     }
-    static boolean deter(int ans, ArrayList<Integer> rocks){
-        int sum = 0;
-        int tmp = rocks.get(0);
-        for (int i = 1; i < rocks.size(); i++) {
-                if(ans>tmp){
-                    sum++;
-                    continue;
-                }
-                tmp = rocks.get(i)-rocks.get(i-1);
+    static boolean deter(int n, int ans, ArrayList<Integer> rocks){
+        int sum = 0, prev = 0;
+        for (int i = 0; i < rocks.size(); i++) {
+                if(ans>rocks.get(i)-prev) sum++;
+                else prev = rocks.get(i);
         }
-        return sum>=tmp;
+        return sum<=n;
     }
 
     static int solution(int distance, int[] rocks, int n) {
@@ -32,7 +28,7 @@ public class SteppingStone_programmers {
             Collectors.toList());
         arrayList.add(distance);
         Collections.sort(arrayList);
-        int answer = bin_search(arrayList);
+        int answer = bin_search(arrayList, n);
         return answer;
     }
 
