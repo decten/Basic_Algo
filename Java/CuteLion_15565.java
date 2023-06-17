@@ -15,18 +15,19 @@ public class CuteLion_15565 {
         }
     }
     static void answer(){
-        int ans = N;
-        for (int left = 0, right = 0; left < N; left++) {
-            int cnt = 0;
-            if(a[left]==2) continue;
-            else cnt++;
-            while(right+1<N && a[right]==2){
-                if(a[++right]==1) cnt++;
-                if(cnt==3){
-                    ans = Math.min(ans, right-left+1);
-                    break;
-                }
+        //cnt,right을 바깥에서 선언 후 안에서는 계속 누적해서 사용해야 함!
+        //안 쪽 반복문도 계속 돌고 cnt 누적을 바깥에서 해야 함
+        int ans = N, cnt = 0, right=-1;
+        for (int left = 0; left < N; left++) {
+            while(right+1<N && cnt < K){
+                right++;
+                if(a[right]==1) cnt++;
             }
+            if(cnt==K){
+                ans = Math.min(ans, right-left+1);
+            }
+            //이게 투 포인터(값이 아닐 때 반복문 넘기지 않고-반복문은 계속 돌아감, 나중에 해당 값을 빼 버림)
+            if(a[left] == 1) cnt--;
         }
         if(ans==N) ans = -1;
 
