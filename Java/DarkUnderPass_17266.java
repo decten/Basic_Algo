@@ -7,22 +7,24 @@ import java.util.StringTokenizer;
 
 public class DarkUnderPass_17266 {
     static int N, M;
-    static List<Integer> array = new ArrayList<>();
+    static int[] a;
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
         M = scan.nextInt();
-        while(scan != null){
-            array.add(scan.nextInt());
+        a = new int[M];
+        for (int i = 0; i < M; i++) {
+            a[i] = scan.nextInt();
         }
     }
 
     static boolean deter(int k){
-        return true;
+        if(a[0]-k>0 || a[M-1]+k<N) return false;
+        return (a[M-1]-a[0])*k-k >= a[M-1]-a[0];
     }
 
     static void bin_search(){
-        int left=0, right=100000, ans=0;
+        int left=0, right=N, ans=N+1;
         while(right>=left){
             int mid = (right+left)/2;
             if(deter(mid)){
