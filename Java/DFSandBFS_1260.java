@@ -18,10 +18,13 @@ public class DFSandBFS_1260 {
             graph[i] = new ArrayList<>();
         }
         //입력 받은대로 저장이 아니라 그래프에 맞춰 저장
-        for (int j = 0; j < M; j++) {
+        for (int i = 0; i < M; i++) {
             int x = scan.nextInt(), y = scan.nextInt();
             graph[x].add(y);
             graph[y].add(x);
+        }
+        for (int i = 1; i <= N; i++) {
+            Collections.sort(graph[i]);
         }
     }
 
@@ -55,7 +58,7 @@ public class DFSandBFS_1260 {
     public static void main(String[] args) {
         input();
         DFS(V);
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i <= N; i++) {
             visited[i] = false;
         }
         System.out.println();
