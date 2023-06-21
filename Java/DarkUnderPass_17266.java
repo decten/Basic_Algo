@@ -18,9 +18,16 @@ public class DarkUnderPass_17266 {
         }
     }
 
-    static boolean deter(int k){
-        if(a[0]-k>0 || a[M-1]+k<N) return false;
-        return (a[M-1]-a[0])*k-k >= a[M-1]-a[0];
+    static boolean deter(int height){
+        int last = 0;  // 밝혀진 마지막 위치
+        for (int i = 0; i < M; i++) {
+            if (a[i] - last <= height) { //마지막 위치+가로등 높이 >= 현재 위치가 돼야 함
+                last = a[i] + height; // 밝혀진 위치=지금 위치+가로등 높이
+            } else {
+                return false;
+            }
+        }
+        return last >= N;
     }
 
     static void bin_search(){
