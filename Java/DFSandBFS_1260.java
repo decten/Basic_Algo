@@ -4,14 +4,14 @@ import java.io.*;
 public class DFSandBFS_1260 {
     static int N, M, V;
     static ArrayList<Integer>[] graph;
-    static boolean Dvisited[] = new boolean[1000];
-    static boolean Bvisited[] = new boolean[1000];
+    static boolean visited[];
 
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
         M = scan.nextInt();
         V = scan.nextInt();
+        visited = new boolean[N+1];
         //노드 개수만큼 배열 생성
         graph = new ArrayList[N+1];
         for (int i = 0; i <= N; i++) {
@@ -26,10 +26,10 @@ public class DFSandBFS_1260 {
     }
 
     static void DFS(int x){
-        Dvisited[x] = true;
+        visited[x] = true;
         System.out.print(x+" ");
         for (int i: graph[x]) {
-            if(Dvisited[i]) continue;
+            if(visited[i]) continue;
             DFS(i);
         }
     }
@@ -37,17 +37,17 @@ public class DFSandBFS_1260 {
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(start);
-        Bvisited[start] = true;
+        visited[start] = true;
 
         while(!queue.isEmpty()){
             int x = queue.poll();
             System.out.print(x+" ");
 
             for (int i: graph[x]) {
-                if(Bvisited[i]) continue;
+                if(visited[i]) continue;
 
                 queue.add(i);
-                Bvisited[i] = true;
+                visited[i] = true;
             }
         }
     }
@@ -55,6 +55,9 @@ public class DFSandBFS_1260 {
     public static void main(String[] args) {
         input();
         DFS(V);
+        for (int i = 0; i < N; i++) {
+            visited[i] = false;
+        }
         System.out.println();
         BFS(V);
     }
