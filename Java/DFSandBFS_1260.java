@@ -18,12 +18,10 @@ public class DFSandBFS_1260 {
             graph[i] = new ArrayList<>();
         }
         //입력 받은대로 저장이 아니라 그래프에 맞춰 저장
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                int x = scan.nextInt(), y = scan.nextInt();
-                graph[x].add(y);
-                graph[y].add(x);
-            }
+        for (int j = 0; j < M; j++) {
+            int x = scan.nextInt(), y = scan.nextInt();
+            graph[x].add(y);
+            graph[y].add(x);
         }
     }
 
@@ -40,12 +38,12 @@ public class DFSandBFS_1260 {
 
         queue.add(start);
         Bvisited[start] = true;
-        System.out.print(start+" ");
 
         while(!queue.isEmpty()){
             int x = queue.poll();
+            System.out.print(x+" ");
 
-            for (int i: graph[start]) {
+            for (int i: graph[x]) {
                 if(Bvisited[i]) continue;
 
                 queue.add(i);
@@ -57,6 +55,7 @@ public class DFSandBFS_1260 {
     public static void main(String[] args) {
         input();
         DFS(V);
+        System.out.println();
         BFS(V);
     }
     static class FastReader{
