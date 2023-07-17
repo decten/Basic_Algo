@@ -1,0 +1,87 @@
+import java.util.*;
+import java.io.*;
+
+public class HouseNumber_2667 {
+    static int N;
+    static int[][] a;
+    static boolean[][] visit;
+    //상,하,좌,우
+    static int[][] dir = {{-1,0}, {1,0},{0,-1},{0,1}};
+    static int cnt = 0;
+
+    static List<Integer> answer = new ArrayList<>();
+    static void input(){
+        FastReader scan = new FastReader();
+        N = scan.nextInt();
+        a = new int[N][N];
+        //visit는 false로 초기화 돼 있음
+        visit = new boolean[N][N];
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                a[i][j] = scan.nextInt();
+            }
+        }
+    }
+    static void dfs(int x, int y){
+        cnt++;
+        visit[x][y] = true;
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dir[i][0];
+            int ny = y + dir[i][1];
+            if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+            //방문한 경우가 true 상태임
+            if(visit[nx][ny]) continue;
+            dfs(nx, ny);
+        }
+    }
+
+    static void ans(){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                //!false -> true, 방문하지 않은 경우가 false임
+                if(!visit[i][j]&&a[i][j]==1){
+                    cnt = 0;
+                    dfs(i,j);
+                    answer.add(cnt);
+                }
+            }
+        }
+
+        Collections.sort(answer);
+        for (int house_cnt: answer) {
+            System.out.println(house_cnt);
+        }
+    }
+
+    public static void main(String[] args) {
+        input();
+        ans();
+        System.out.println();
+    }
+
+    static class FastReader{
+        BufferedReader br;
+        StringTokenizer st;
+
+        FastReader(){
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next(){
+            while(st==null||!st.hasMoreElements()){
+                try{
+                    st = new StringTokenizer(br.readLine());
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt(){
+            return Integer.parseInt(next());
+        }
+    }
+}
