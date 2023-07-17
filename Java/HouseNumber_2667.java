@@ -29,6 +29,7 @@ public class HouseNumber_2667 {
             int nx = x + dir[i][0];
             int ny = y + dir[i][1];
             if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+            if(a[nx].charAt(ny) == '0') continue;
             //방문한 경우가 true 상태임
             if(visit[nx][ny]) continue;
             dfs(nx, ny);
@@ -38,7 +39,7 @@ public class HouseNumber_2667 {
     static void ans(){
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                //!false -> true, 방문하지 않은 경우가 false임
+                //!false -> true, 방문 하지 않은 경우가 false임
                 if(!visit[i][j]&&a[i].charAt(j)=='1'){
                     cnt = 0;
                     dfs(i,j);
@@ -48,6 +49,7 @@ public class HouseNumber_2667 {
         }
 
         Collections.sort(answer);
+        System.out.println(answer.size());
         for (int house_cnt: answer) {
             System.out.println(house_cnt);
         }
