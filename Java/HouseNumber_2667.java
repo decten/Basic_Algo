@@ -3,7 +3,7 @@ import java.io.*;
 
 public class HouseNumber_2667 {
     static int N;
-    static int[][] a;
+    static String[] a;
     static boolean[][] visit;
     //상,하,좌,우
     static int[][] dir = {{-1,0}, {1,0},{0,-1},{0,1}};
@@ -13,14 +13,12 @@ public class HouseNumber_2667 {
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
-        a = new int[N][N];
+        a = new String[N];
         //visit는 false로 초기화 돼 있음
         visit = new boolean[N][N];
 
         for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                a[i][j] = scan.nextInt();
-            }
+                a[i] = scan.next();
         }
     }
     static void dfs(int x, int y){
@@ -41,7 +39,7 @@ public class HouseNumber_2667 {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 //!false -> true, 방문하지 않은 경우가 false임
-                if(!visit[i][j]&&a[i][j]==1){
+                if(!visit[i][j]&&a[i].charAt(j)=='1'){
                     cnt = 0;
                     dfs(i,j);
                     answer.add(cnt);
