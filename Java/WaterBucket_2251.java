@@ -65,7 +65,8 @@ public class WaterBucket_2251 {
     }
     static void ans(){
         bfs(0,0,Limit[2]);
-        for (int i = 0; i < Limit[2]; i++) {
+        //possible과 Limit의 크기를 동일하게 설정해서 마지막 요소까지 접근 가능
+        for (int i = 0; i <= Limit[2]; i++) {
             if(possible[i]) sb.append(i).append(' ');
         }
         System.out.println(sb.toString());
