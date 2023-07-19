@@ -9,7 +9,8 @@ public class WaterBucket_2251 {
                 x[i] = _x[i];
             }
         }
-        State move(int from, int to, int[] limit){
+        //물통은 총 3개이나, 물을 옮기는 행위는 B->A, C->B 이런 식으로 2개의 물통을 대상으로 이뤄짐
+        State move(int from, int to, int[] Limit){
             int[] nX = new int[]{x[0],x[1],x[2]};
             //from의 물을 옮기면, 담는(to) 통이 꽉 차는 경우
             if(x[from] + x[to] >= Limit[to]){
