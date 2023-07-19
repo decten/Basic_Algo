@@ -9,7 +9,7 @@ public class WaterBucket_2251 {
                 x[i] = _x[i];
             }
         }
-        State move(int from, int to, int[] limit){
+        State move(int from, int to, int[] Limit){
             int[] nX = new int[]{x[0],x[1],x[2]};
             //from의 물을 옮기면, 담는(to) 통이 꽉 차는 경우
             if(x[from] + x[to] >= Limit[to]){
