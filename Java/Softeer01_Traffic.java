@@ -43,6 +43,7 @@ public class Softeer01_Traffic {
         time++;
         ans++;
 
+        //바깥을 x(행으로 바꾸고), 안 쪽을 N으로 바꾸고, 마지막을 개수만큼으로 바꾸기
         for (int k = 1; k <= y; k++) {
             for (int i = 0; i < signal[x][k].length; i++) {
                 int nx = x + signal[x][i][0];
