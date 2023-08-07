@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="README_업데이트">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="026a6dd9-048d-4d6d-8f2d-a5e7d1ac61d6" name="Changes" comment="이전 문제 풀이" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,11 +26,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hyeon/OneDrive/Desktop/Basic_Algo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hyeon/Desktop/Basic_Algo/Java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -39,7 +44,7 @@
       <recent name="C:\Users\hyeon\OneDrive\Desktop\Basic_Algo\CPP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.이코테_1">
+  <component name="RunManager">
     <configuration name="이코테_1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Basic_Algo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,6 +108,8 @@
       <workItem from="1682667952193" duration="106000" />
       <workItem from="1685295297006" duration="72000" />
       <workItem from="1687064562994" duration="12000" />
+      <workItem from="1691131623513" duration="23000" />
+      <workItem from="1691237504125" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="이전 문제 풀이">
       <created>1674889724589</created>
