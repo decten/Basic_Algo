@@ -56,7 +56,7 @@ public class Escape_3055 {
             }
         }
         //dist의 어딜 참조해야 할지 모르겠네
-        System.out.println(dist[][]);
+//        System.out.println(dist[][]);
     }
     public static void main(String[] args){
         input();
