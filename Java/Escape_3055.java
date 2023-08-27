@@ -19,6 +19,7 @@ public class Escape_3055 {
 
     }
     //물이 있는 곳은 visit 배열(도치 bfs랑 같이 사용)로 체크
+    //물이 여러 곳에 있을 수 있음
     static void water_BFS(int i, int j){
 
     }
