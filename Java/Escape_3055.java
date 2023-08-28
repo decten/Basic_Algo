@@ -90,7 +90,7 @@ public class Escape_3055 {
                 if(nx <0 || ny < 0 || nx >= R || ny >= C) continue;
                 if(a[nx].charAt(ny) != '.' && a[nx].charAt(ny) != 'D')  continue;
                 //갈 칸의 도치 이동 시간이 물 이동 시간 보다 길거나 같으면 못 가는 칸 -> 이 문제의 핵심
-                if(dist_water[nx][ny] <= dist_dochi[x][y]+1) continue;
+                if(dist_water[nx][ny] != -1 && dist_water[nx][ny] <= dist_dochi[x][y]+1) continue;
                 if(visit[nx][ny]) continue;
 
                 queue.add(nx);
