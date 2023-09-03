@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.*;
 import java.io.*;
 public class WaterBucket_2251 {
