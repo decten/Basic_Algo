@@ -1,29 +1,39 @@
-import java.util.*;
-import java.io.*;
+package twopointer;
 
-public class LUN_13144 {
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.*;
+
+public class TwoLiquid_2470_TwoPointer {
     static int N;
-    static int[] a,count;
+    static int[] a;
+    static int[] b = new int[2];
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
-        a = new int[N+1];
-        count = new int[100000+1];
-        for (int i = 1; i <= N; i++) {
+        a = new int[N];
+        for (int i = 0; i < N; i++) {
             a[i] = scan.nextInt();
         }
+        Arrays.sort(a);
     }
+
     static void answer(){
-        long ans = 0;
-        for (int left = 1, right=0; left <= N; left++) {
-            while(right+1<=N && count[a[right+1]]==0){
-                count[a[++right]]++;
+        int right = N-1, left=0, ans = Integer.MAX_VALUE, sum = 0;
+        //right=left가 되는 순간 끝이 남
+        while(right>left){
+            sum = a[left]+a[right];
+            if(Math.abs(ans) >= Math.abs(sum)){
+                ans = sum;
+                b[0] = a[left];
+                b[1] = a[right];
             }
-            ans += right-left+1;
-            count[a[left]]--;
+            if(sum > 0) right--;
+            else left++;
         }
-        System.out.println(ans);
+        System.out.println(b[0]+" "+b[1]);
     }
+
     public static void main(String[] args) {
         input();
         answer();
@@ -36,7 +46,7 @@ public class LUN_13144 {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
         String next(){
-            while (st==null||!st.hasMoreElements()){
+            while(st==null||!st.hasMoreElements()){
                 try{
                     st = new StringTokenizer(br.readLine());
                 }catch (IOException e){
@@ -47,6 +57,9 @@ public class LUN_13144 {
         }
         int nextInt(){
             return Integer.parseInt(next());
+        }
+        long nextLong(){
+            return Long.parseLong(next());
         }
     }
 }

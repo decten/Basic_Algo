@@ -1,34 +1,31 @@
+package twopointer;
+
 import java.util.*;
 import java.io.*;
 
-public class SumOfNumber2_2003 {
+public class LUN_13144 {
     static int N;
-    static long M;
-    static int[] a;
+    static int[] a,count;
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
-        M = scan.nextLong();
         a = new int[N+1];
-
+        count = new int[100000+1];
         for (int i = 1; i <= N; i++) {
             a[i] = scan.nextInt();
         }
-
     }
     static void answer(){
-        int cnt = 0;
         long ans = 0;
         for (int left = 1, right=0; left <= N; left++) {
-            while(right+1<=N && ans<M){
-                ans += a[++right];
+            while(right+1<=N && count[a[right+1]]==0){
+                count[a[++right]]++;
             }
-            if(ans==M) cnt++;
-            ans -= a[left];
+            ans += right-left+1;
+            count[a[left]]--;
         }
-        System.out.println(cnt);
+        System.out.println(ans);
     }
-
     public static void main(String[] args) {
         input();
         answer();
@@ -40,9 +37,8 @@ public class SumOfNumber2_2003 {
         FastReader(){
             br = new BufferedReader(new InputStreamReader(System.in));
         }
-
         String next(){
-            while(st==null||!st.hasMoreElements()){
+            while (st==null||!st.hasMoreElements()){
                 try{
                     st = new StringTokenizer(br.readLine());
                 }catch (IOException e){
@@ -51,13 +47,8 @@ public class SumOfNumber2_2003 {
             }
             return st.nextToken();
         }
-
         int nextInt(){
             return Integer.parseInt(next());
-        }
-
-        long nextLong(){
-            return Long.parseLong(next());
         }
     }
 }
