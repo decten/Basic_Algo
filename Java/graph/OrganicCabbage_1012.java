@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 public class OrganicCabbage_1012 {
     static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
     static int N,M,K;
     static int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
     static boolean[][] cabbage;
@@ -31,30 +32,32 @@ public class OrganicCabbage_1012 {
         }
 
     }
-    public static void solve(){
+
+    static void solve() {
         int cnt = 0;
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                if(!visit[i][j]&&cabbage[i][j]) {
+                if (!visit[i][j] && cabbage[i][j]) {
                     cnt++;
-                    bfs(i,j);
+                    bfs(i, j);
                 }
             }
         }
-        System.out.println(cnt);
+        sb.append(cnt + "\n");
 
     }
-    public static void bfs(int i, int j){
+
+    static void bfs(int i, int j) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(i);
         queue.add(j);
         visit[i][j] = true;
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int x = queue.poll(), y = queue.poll();
             for (int k = 0; k < 4; k++) {
-                int nx = dir[k][0]+x, ny = dir[k][1]+y;
+                int nx = dir[k][0] + x, ny = dir[k][1] + y;
 
                 if(nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
                 if(!cabbage[nx][ny]) continue;
@@ -73,6 +76,7 @@ public class OrganicCabbage_1012 {
             input();
             solve();
         }
+        System.out.println(sb.toString());
     }
     static class FastReader{
         BufferedReader br;
