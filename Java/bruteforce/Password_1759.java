@@ -1,3 +1,5 @@
+package bruteforce;
+
 import java.io.*;
 import java.sql.Array;
 import java.util.*;

@@ -1,7 +1,9 @@
+package bruteforce;
+
 import java.util.*;
 import java.io.*;
 
-public class NM2_15650 {
+public class NM4_15652 {
     static StringBuilder sb = new StringBuilder();
     static int N,M;
     static int[] selected;
@@ -16,8 +18,10 @@ public class NM2_15650 {
             for (int i = 1; i <= M; i++) sb.append(selected[i]).append(' ');
             sb.append('\n');
         }else{
-            //이전에 쓰인 숫자보다 1크게
-            for (int present = selected[k-1]+1; present <= N ; present++) {
+            // 크거나 같은 값이라 selected[k-1]로 하면 0부터 시작함
+            int start = selected[k-1];
+            if (start == 0) start = 1;
+            for (int present = start; present <= N ; present++) {
                 selected[k] = present;
                 rec_func(k+1);
                 selected[k] = 0;
