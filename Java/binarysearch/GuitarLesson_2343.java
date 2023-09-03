@@ -1,40 +1,46 @@
+package binarysearch;
+
 import java.util.*;
 import java.io.*;
 
-//문제에서 인덱스를 1부터 사용함!
-public class KthNumber_1300 {
-    static int N;
-    static long M;
+public class GuitarLesson_2343 {
+    static int N,M;
+    static int[] a;
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
-        M = scan.nextLong();
-    }
-    static boolean multiple_check(long k){
-        long ans = 0;
-        for (int i = 1; i <= N; i++) {
-            ans += Math.min(k/i,N);
+        M = scan.nextInt();
+        a = new int[N];
+        for (int i = 0; i < N; i++) {
+            a[i] = scan.nextInt();
         }
-        return ans >= M;
     }
-    static long bin_search(){
-        long ans = 0;
-        long left = 1;
-        long right = (long) N*N;
-
+    static boolean determination(long k){
+        int cnt=1;
+        int sum=0;
+        for (int i = 0; i < N; i++) {
+            sum+=a[i];
+            if(sum>=k){
+                cnt++;
+                sum=a[i];
+            }
+        }
+        return cnt<=M;
+    }
+    static void answer(){
+        Arrays.sort(a);
+        long left=a[0], right=1000000000,ans=0;
+        for (int i = 0; i < N; i++) left = Math.max(left, a[i]);  // 적어도 제일 긴 녹화본의 길이 만큼은 필요하다!
         while(right>=left){
-            long mid = (left+right)/2;
-            if(multiple_check(mid)){
+            long mid = (right+left)/2;
+            if(determination(mid)){
                 right = mid-1;
                 ans = mid;
             }else{
                 left = mid+1;
             }
         }
-        return ans;
-    }
-    static void answer(){
-        System.out.println(bin_search());
+        System.out.println(ans-1);
     }
     public static void main(String[] args) {
         input();
@@ -49,7 +55,7 @@ public class KthNumber_1300 {
         }
         String next(){
             while(st==null||!st.hasMoreElements()){
-                try{
+                try {
                     st = new StringTokenizer(br.readLine());
                 }catch (IOException e){
                     e.printStackTrace();
@@ -59,9 +65,6 @@ public class KthNumber_1300 {
         }
         int nextInt(){
             return Integer.parseInt(next());
-        }
-        long nextLong(){
-            return Long.parseLong(next());
         }
     }
 }

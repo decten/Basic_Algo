@@ -1,7 +1,9 @@
+package binarysearch;
+
 import java.util.*;
 import java.io.*;
 
-public class Nugu {
+public class Nugu_1764 {
     static int N,M;
     static String[] A, B;
     static StringBuilder sb = new StringBuilder();

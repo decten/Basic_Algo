@@ -1,3 +1,5 @@
+package binarysearch;
+
 import java.io.*;
 import java.util.*;
 public class EatBeEaten_7795 {

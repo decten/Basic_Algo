@@ -1,50 +1,49 @@
-import java.util.*;
-import java.io.*;
+package binarysearch;
 
-public class AllowanceManagement_6236 {
-    static int N,M;
+import java.io.*;
+import java.util.*;
+
+public class StrangeBar_13702 {
+    static int N, M;
     static int[] a;
     static void input(){
         FastReader scan = new FastReader();
-        N = scan.nextInteger();
-        M = scan.nextInteger();
+        N = scan.nextInt();
+        M = scan.nextInt();
         a = new int[N];
         for (int i = 0; i < N; i++) {
-            a[i] = scan.nextInteger();
+            a[i] = scan.nextInt();
         }
-    }
-    static boolean determination(int k){
-        int cnt = 1, sum=0;
-        for (int i = 0; i < N; i++) {
-            if(sum+a[i] > k){
-                cnt++;
-                sum = a[i];
-            }else{
-                sum += a[i];
-            }
-        }
-        return cnt<=M;
-    }
-    static void answer(){
         Arrays.sort(a);
-        int left=a[0], right=1000000000, ans=0;
+    }
+    static boolean deter(long k){
+        int ans = 0;
+        if(k==0) return false;
         for (int i = 0; i < N; i++) {
-            left = Math.max(left,a[i]);
+            ans += a[i]/k;
         }
-        while (right>=left){
-            int mid = (right+left)/2;
-            if(determination(mid)){
-                right = mid-1;
+        return ans >= M;
+    }
+    static void bin_search(){
+        long ans = 0;
+        long right = Integer.MAX_VALUE;
+        long left = 0;
+
+        while(right>=left){
+            long mid = (right+left)/2;
+            if(deter(mid)){
+                left = mid+1;
                 ans = mid;
             }else{
-                left = mid+1;
+                right = mid-1;
             }
         }
+
         System.out.println(ans);
     }
-    static public void main(String args[]){
+    public static void main(String[] args) {
         input();
-        answer();
+        bin_search();
     }
     static class FastReader{
         BufferedReader br;
@@ -53,7 +52,6 @@ public class AllowanceManagement_6236 {
         FastReader(){
             br = new BufferedReader(new InputStreamReader(System.in));
         }
-
         String next(){
             while(st==null||!st.hasMoreElements()){
                 try{
@@ -64,7 +62,7 @@ public class AllowanceManagement_6236 {
             }
             return st.nextToken();
         }
-        int nextInteger(){
+        int nextInt(){
             return Integer.parseInt(next());
         }
     }

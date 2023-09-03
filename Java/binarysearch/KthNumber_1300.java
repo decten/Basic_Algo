@@ -1,47 +1,46 @@
-import java.io.*;
-import java.util.*;
+package binarysearch;
 
-public class StrangeBar_13702 {
-    static int N, M;
-    static int[] a;
+import java.util.*;
+import java.io.*;
+
+//문제에서 인덱스를 1부터 사용함!
+public class KthNumber_1300 {
+    static int N;
+    static long M;
     static void input(){
         FastReader scan = new FastReader();
         N = scan.nextInt();
-        M = scan.nextInt();
-        a = new int[N];
-        for (int i = 0; i < N; i++) {
-            a[i] = scan.nextInt();
-        }
-        Arrays.sort(a);
+        M = scan.nextLong();
     }
-    static boolean deter(long k){
-        int ans = 0;
-        if(k==0) return false;
-        for (int i = 0; i < N; i++) {
-            ans += a[i]/k;
+    static boolean multiple_check(long k){
+        long ans = 0;
+        for (int i = 1; i <= N; i++) {
+            ans += Math.min(k/i,N);
         }
         return ans >= M;
     }
-    static void bin_search(){
+    static long bin_search(){
         long ans = 0;
-        long right = Integer.MAX_VALUE;
-        long left = 0;
+        long left = 1;
+        long right = (long) N*N;
 
         while(right>=left){
-            long mid = (right+left)/2;
-            if(deter(mid)){
-                left = mid+1;
+            long mid = (left+right)/2;
+            if(multiple_check(mid)){
+                right = mid-1;
                 ans = mid;
             }else{
-                right = mid-1;
+                left = mid+1;
             }
         }
-
-        System.out.println(ans);
+        return ans;
+    }
+    static void answer(){
+        System.out.println(bin_search());
     }
     public static void main(String[] args) {
         input();
-        bin_search();
+        answer();
     }
     static class FastReader{
         BufferedReader br;
@@ -62,6 +61,9 @@ public class StrangeBar_13702 {
         }
         int nextInt(){
             return Integer.parseInt(next());
+        }
+        long nextLong(){
+            return Long.parseLong(next());
         }
     }
 }

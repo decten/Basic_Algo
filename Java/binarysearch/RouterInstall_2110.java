@@ -1,7 +1,9 @@
-import java.util.*;
-import java.io.*;
+package binarysearch;
 
-public class CuttingTree_2805 {
+import java.io.*;
+import java.util.*;
+
+public class RouterInstall_2110 {
     static int N,M;
     static int[] a;
     static void input(){
@@ -14,21 +16,20 @@ public class CuttingTree_2805 {
         }
         Arrays.sort(a);
     }
-    static boolean determination(int H){
-        long sum = 0;
-        for (int i = 0; i < N; i++) {
-            if(a[i]>H){
-                sum += a[i]-H;
+    static boolean determination(int k){
+        int cnt = 1, last = a[0];
+        for (int i = 1; i < N; i++) {
+            if(a[i]-last>=k) {
+                cnt++;
+                last = a[i];
             }
         }
-        return sum >= M;
+        return cnt>=M;
     }
-    static void bin_search(){
-        long ans = 0;
-        long left = 0;
-        long right = 2000000000;
-        while(right>=left){
-            int mid = (int) (left+right)/2;
+    static void answer(){
+        int left=0, right=1000000000, ans=0;
+        while (right>=left){
+            int mid = (left+right)/2;
             if(determination(mid)){
                 ans = mid;
                 left = mid+1;
@@ -41,7 +42,7 @@ public class CuttingTree_2805 {
 
     public static void main(String[] args) {
         input();
-        bin_search();
+        answer();
     }
     static class FastReader{
         BufferedReader br;
@@ -50,6 +51,7 @@ public class CuttingTree_2805 {
         FastReader(){
             br = new BufferedReader(new InputStreamReader(System.in));
         }
+
         String next(){
             while (st==null||!st.hasMoreElements()){
                 try{
@@ -64,4 +66,5 @@ public class CuttingTree_2805 {
             return Integer.parseInt(next());
         }
     }
+
 }
