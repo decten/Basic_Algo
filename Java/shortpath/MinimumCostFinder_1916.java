@@ -85,6 +85,7 @@ public class MinimumCostFinder_1916 {
 
     public static void main(String[] args){
         input();
+        solve();
     }
     static class FastReader{
         BufferedReader br;
