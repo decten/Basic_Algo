@@ -1,3 +1,5 @@
+package greedy;
+
 import java.util.*;
 import java.io.*;
 public class ClassroomAssign_11000 {
