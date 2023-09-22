@@ -2,52 +2,83 @@ package tree;
 
 import java.util.*;
 import java.io.*;
-
 public class FindParentTree_11725 {
     static FastReader scan = new FastReader();
-    static int N;
-    static List<ArrayList<Integer>> a;
+    static StringBuilder sb = new StringBuilder();
 
-    static void input(){
-        N = scan.nextInt();
+    static int n;
+    static ArrayList<Integer>[] adj;
+    static int[] parent;
 
-        for (int i = 1; i <= N; i++) {
-            a = new ArrayList<>();
-            a.add(i, new ArrayList<>());
-        }
+    static void input() {
+        n = scan.nextInt();
 
-        for (int i = 1; i <= N; i++) {
-            int first = scan.nextInt();
-            int second = scan.nextInt();
-
-            a.get(first).add(second);
-
-        }
+        // 인접 리스트 구성하기
+        /* TODO */
     }
+
+    // dfs(x, par) := 정점 x 의 부모가 par 였고, x의 children들을 찾아주는 함수
+    static void dfs(int x, int par) {
+        /* TODO */
+    }
+
+    static void pro() {
+        // 1 번 정점이 ROOT 이므로, 여기서 시작해서 Tree의 구조를 파악하자.
+        /* TODO */
+
+        // 정답 출력하기
+        /* TODO */
+    }
+
     public static void main(String[] args) {
         input();
+        pro();
     }
-    static class FastReader{
+
+
+    static class FastReader {
         BufferedReader br;
         StringTokenizer st;
 
-        FastReader(){
+        public FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        String next(){
-            while (st==null||!st.hasMoreElements()){
-                try{
+        public FastReader(String s) throws FileNotFoundException {
+            br = new BufferedReader(new FileReader(new File(s)));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
                     st = new StringTokenizer(br.readLine());
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             return st.nextToken();
         }
 
-        int nextInt(){
+        int nextInt() {
             return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
         }
     }
 }
