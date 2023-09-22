@@ -1,14 +1,32 @@
-package etc;
+package tree;
 
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
-public class BeerWalking_9205 {
-    //거리는 루트 안 씌우고 딱 x 좌표의 차이 + y 좌표의 차이
-    public static void main(String[] args){
+public class FindParentTree_11725 {
+    static FastReader scan = new FastReader();
+    static int N;
+    static List<ArrayList<Integer>> a;
 
+    static void input(){
+        N = scan.nextInt();
+
+        for (int i = 1; i <= N; i++) {
+            a = new ArrayList<>();
+            a.add(i, new ArrayList<>());
+        }
+
+        for (int i = 1; i <= N; i++) {
+            int first = scan.nextInt();
+            int second = scan.nextInt();
+
+            a.get(first).add(second);
+
+        }
     }
-
+    public static void main(String[] args) {
+        input();
+    }
     static class FastReader{
         BufferedReader br;
         StringTokenizer st;
@@ -16,6 +34,7 @@ public class BeerWalking_9205 {
         FastReader(){
             br = new BufferedReader(new InputStreamReader(System.in));
         }
+
         String next(){
             while (st==null||!st.hasMoreElements()){
                 try{
@@ -26,9 +45,9 @@ public class BeerWalking_9205 {
             }
             return st.nextToken();
         }
+
         int nextInt(){
             return Integer.parseInt(next());
         }
     }
-
 }
