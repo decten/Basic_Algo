@@ -6,28 +6,41 @@ public class FindParentTree_11725 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int n;
+    static int N;
     static ArrayList<Integer>[] adj;
     static int[] parent;
 
     static void input() {
-        n = scan.nextInt();
+        N = scan.nextInt();
+        adj = new ArrayList[N +1];
+        parent = new int[N+1];
 
-        // 인접 리스트 구성하기
-        /* TODO */
+        for (int i = 1; i <= N; i++) {
+            adj[i] = new ArrayList<>();
+        }
+
+        for (int i = 1; i < N; i++) {
+            int X = scan.nextInt(), Y = scan.nextInt();
+            adj[X].add(Y);
+            adj[Y].add(X);
+        }
     }
 
-    // dfs(x, par) := 정점 x 의 부모가 par 였고, x의 children들을 찾아주는 함수
+    // 인접 리스트는 해당 정점의 부모 또는 자식 노드만 존재 & DFS로 타고 들어가서 같은 level이랑 안 섞이도록 함
     static void dfs(int x, int par) {
-        /* TODO */
+        for (int y: adj[x]) {
+            if(y==par) continue;
+            parent[y] = x;
+            dfs(y,x);
+        }
     }
 
     static void pro() {
-        // 1 번 정점이 ROOT 이므로, 여기서 시작해서 Tree의 구조를 파악하자.
-        /* TODO */
+        dfs(1,-1);
 
-        // 정답 출력하기
-        /* TODO */
+        for (int i = 2; i <= N; i++) {
+            System.out.println(parent[i]);
+        }
     }
 
     public static void main(String[] args) {
