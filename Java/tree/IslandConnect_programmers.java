@@ -14,12 +14,8 @@ public class IslandConnect_programmers {
             parent[i] = i;
         }
         //다익스트라 안 가고 정렬 선에서 끝남
-        Arrays.sort(costs, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[2]-o2[2];
-            }
-        });
+        Arrays.sort(costs, (a, b) -> Integer.compare(a[2], b[2]));
+
         for (int i = 0; i < costs.length ; i++) {
             int x = find(costs[i][0]);
             int y = find(costs[i][1]);
