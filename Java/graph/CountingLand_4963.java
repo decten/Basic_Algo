@@ -19,9 +19,10 @@ public class CountingLand_4963 {
     static int W = 1, H = 1;
 
     static void input() {
-        while (!(W == 0 && H == 0)) {
+        while (true) {
             H = scan.nextInt();
             W = scan.nextInt();
+            if((W == 0 && H == 0)) return;
             solve();
         }
     }
