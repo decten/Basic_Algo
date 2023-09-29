@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class IslandConnect_programmers {
 
     static int[] parent;
@@ -7,17 +10,31 @@ public class IslandConnect_programmers {
         int answer = 0;
         //악 유니온 파인드 왜 생각 못 했지
         parent = new int[costs.length];
+        for (int i = 0; i < costs.length; i++) {
+            parent[i] = i;
+        }
+        //다익스트라 안 가고 정렬 선에서 끝남
+        Arrays.sort(costs, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[2]-o2[2];
+            }
+        });
+        for (int i = 0; i < costs.length ; i++) {
+            int x = find(costs[i][0]);
+            int y = find(costs[i][1]);
+
+            if(find(x)!=find(y)){
+                parent[y] = x;
+                answer += costs[i][2];
+            }
+        }
         System.out.println(answer);
     }
 
     static int find(int a){
         if(parent[a] == a) return a;
         return parent[a] = find(parent[a]);
-    }
-    static void union(int x, int y){
-        if(find(x)!=find(y)){
-            parent[y] = x;
-        }
     }
 
     public static void main(String[] args) {
