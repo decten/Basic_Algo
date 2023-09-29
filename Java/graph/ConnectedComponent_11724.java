@@ -21,6 +21,7 @@ public class ConnectedComponent_11724 {
         for (int i = 0; i < M; i++) {
             int from = scan.nextInt(), to = scan.nextInt();
             adj[from].add(to);
+            adj[to].add(from);
         }
 
     }
