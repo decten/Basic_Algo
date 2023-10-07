@@ -2,7 +2,7 @@ package greedy;
 
 public class JoyStick_programmers {
 
-    public int solution(String name) {
+    public static int solution(String name) {
         int answer = 0;
         int length = name.length();
 
@@ -23,6 +23,6 @@ public class JoyStick_programmers {
         return answer + move;
     }
     public static void main(String[] args) {
-
+        solution("");
     }
 }
