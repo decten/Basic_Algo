@@ -44,11 +44,5 @@ public class ParkingFee_programmers {
     }
 
     public static void main(String[] args) {
-        solution(new int[]{1, 461, 1, 10}, new String[]
-            {
-                "00:00 1234 IN"
-            }
-        );
-
     }
 }
