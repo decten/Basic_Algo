@@ -13,6 +13,7 @@ public class IslandConnect_programmers {
         for (int i = 0; i < costs.length; i++) {
             parent[i] = i;
         }
+
         //다익스트라 안 가고 정렬 선에서 끝남
         Arrays.sort(costs, Comparator.comparingInt(a->a[2]));
 
