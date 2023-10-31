@@ -18,6 +18,7 @@ public class ElectricityBill_5710 {
         }
     }
 
+
     public static int cal_price(int watt) {
         if (watt <= 100) {
             return watt * 2;
