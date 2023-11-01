@@ -17,6 +17,7 @@ public class QuadZip_programmers {
         dfs(arr,x+size/2,y, size/2);
         dfs(arr,x+size/2,y + size/2, size/2);
     }
+
     static boolean zip(int[][] arr, int x, int y, int size, int val) {
         for(int i = x; i < x + size; i++)
             for(int j = y; j < y + size; j++)
