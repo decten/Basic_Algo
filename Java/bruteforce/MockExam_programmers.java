@@ -16,6 +16,7 @@ public class MockExam_programmers {
             if(supo3[i%8]==answers[i]) score[2]++;
         }
 
+
         int maxScore = Math.max(score[0], Math.max(score[1], score[2]));
         ArrayList<Integer> list = new ArrayList<>();
 
