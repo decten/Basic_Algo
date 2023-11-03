@@ -21,6 +21,7 @@ public class CaesarPassword_programmers {
             sb.append(alpha);
         }
     }
+
     public static void main(String args[]){
         solution("a B z",4);
     }
