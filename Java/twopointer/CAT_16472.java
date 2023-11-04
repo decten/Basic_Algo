@@ -14,6 +14,7 @@ public class CAT_16472 {
         a = scan.next();
     }
     //kind 처리 때문에 함수로 따로 빼는게 깔끔하다
+
     static void add(char x) {
         alpha[x - 'a']++;
         if (alpha[x - 'a'] == 1)
