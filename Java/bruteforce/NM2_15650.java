@@ -27,6 +27,7 @@ public class NM2_15650 {
         }
     }
 
+
     public static void main(String[] args) {
         input();
         rec_func(1);
