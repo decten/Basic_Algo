@@ -26,6 +26,7 @@ public class RouterInstall_2110 {
         }
         return cnt>=M;
     }
+
     static void answer(){
         int left=0, right=1000000000, ans=0;
         while (right>=left){
