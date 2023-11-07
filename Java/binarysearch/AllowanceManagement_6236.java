@@ -27,6 +27,7 @@ public class AllowanceManagement_6236 {
         }
         return cnt<=M;
     }
+
     static void answer(){
         Arrays.sort(a);
         int left=a[0], right=1000000000, ans=0;
