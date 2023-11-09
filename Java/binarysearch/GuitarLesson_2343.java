@@ -27,6 +27,7 @@ public class GuitarLesson_2343 {
         }
         return cnt<=M;
     }
+
     static void answer(){
         Arrays.sort(a);
         long left=a[0], right=1000000000,ans=0;
