@@ -30,6 +30,7 @@ public class EatBeEaten_7795 {
 
         System.out.println(ans);
     }
+
     static void input(){
         FastReader scan = new FastReader();
         int T = scan.nextInt();
