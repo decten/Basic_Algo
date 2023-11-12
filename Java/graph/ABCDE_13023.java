@@ -55,6 +55,7 @@ public class ABCDE_13023 {
             visited[idx] = false;
         }
     }
+
     public static void main(String[] args){
         input();
         solve();
