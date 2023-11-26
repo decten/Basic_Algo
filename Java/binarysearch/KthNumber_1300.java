@@ -35,6 +35,7 @@ public class KthNumber_1300 {
         }
         return ans;
     }
+
     static void answer(){
         System.out.println(bin_search());
     }
