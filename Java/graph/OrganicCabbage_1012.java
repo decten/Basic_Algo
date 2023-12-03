@@ -8,13 +8,15 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class OrganicCabbage_1012 {
+
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
-    static int N,M,K;
-    static int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
+    static int N, M, K;
+    static int[][] dir = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     static boolean[][] cabbage;
     static boolean[][] visit;
-    static void input(){
+
+    static void input() {
 
         M = scan.nextInt();
         N = scan.nextInt();
@@ -59,9 +61,15 @@ public class OrganicCabbage_1012 {
             for (int k = 0; k < 4; k++) {
                 int nx = dir[k][0] + x, ny = dir[k][1] + y;
 
-                if(nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
-                if(!cabbage[nx][ny]) continue;
-                if(visit[nx][ny]) continue;
+                if (nx < 0 || ny < 0 || nx >= N || ny >= M) {
+                    continue;
+                }
+                if (!cabbage[nx][ny]) {
+                    continue;
+                }
+                if (visit[nx][ny]) {
+                    continue;
+                }
 
                 queue.add(nx);
                 queue.add(ny);
@@ -70,24 +78,27 @@ public class OrganicCabbage_1012 {
         }
 
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         int T = scan.nextInt();
-        while (T-- > 0){
+        while (T-- > 0) {
             input();
             solve();
         }
         System.out.println(sb.toString());
     }
-    static class FastReader{
+
+    static class FastReader {
+
         BufferedReader br;
         StringTokenizer st;
 
-        FastReader(){
+        FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        String next(){
-            while(st==null||!st.hasMoreElements()){
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
                 try {
                     st = new StringTokenizer(br.readLine());
                 } catch (IOException e) {
@@ -97,7 +108,7 @@ public class OrganicCabbage_1012 {
             return st.nextToken();
         }
 
-        int nextInt(){
+        int nextInt() {
             return Integer.parseInt(next());
         }
     }
