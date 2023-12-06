@@ -15,7 +15,7 @@ public class TwoByNTiling_11726 {
         Dy[2] = 2;
 
         for (int i = 3; i <= N; i++) {
-            Dy[i] = (Dy[i-2] + Dy[i-1]) % 10007;
+            Dy[i] = (Dy[i - 2] + Dy[i - 1]) % 10007;
         }
 
         System.out.println(Dy[N]);
