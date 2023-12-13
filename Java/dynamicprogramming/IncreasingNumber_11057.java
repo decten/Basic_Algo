@@ -1,17 +1,20 @@
 package dynamicprogramming;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class IncreasingNumber_11057 {
+
     static FastReader scan = new FastReader();
 
     static int N;
     static int[][] Dy;
 
-    static void solve(){
+    static void solve() {
         N = scan.nextInt();
-        Dy = new int[N+1][10];
+        Dy = new int[N + 1][10];
 
         for (int num = 0; num <= 9; num++) {
             Dy[1][num] = 1; //길이가 1이고 num으로 끝나는 수
@@ -22,7 +25,7 @@ public class IncreasingNumber_11057 {
             for (int num = 0; num <= 9; num++) {
                 //last가 9보다 작은 경우를 고려해야 했음
                 for (int prev = 0; prev <= num; prev++) {
-                    Dy[len][num] += Dy[len-1][prev];
+                    Dy[len][num] += Dy[len - 1][prev];
                     Dy[len][num] %= 10007;
                 }
             }
