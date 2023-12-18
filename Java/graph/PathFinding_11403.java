@@ -11,10 +11,10 @@ public class PathFinding_11403 {
     static int[][] adj;
     static boolean[] visit;
 
-    static void input(){
+    static void input() {
         N = scan.nextInt();
         adj = new int[N + 1][N + 1];
-        for (int i = 1;i <= N; i++)
+        for (int i = 1; i <= N; i++)
             for (int j = 1; j <= N; j++)
                 adj[i][j] = scan.nextInt();
 
@@ -54,20 +54,22 @@ public class PathFinding_11403 {
             bfs(i);
         System.out.println(sb);
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         input();
         pro();
     }
-    static class FastReader{
+
+    static class FastReader {
         StringTokenizer st;
         BufferedReader br;
 
-        FastReader(){
+        FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        String next(){
-            while(st==null||!st.hasMoreElements()){
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
                 try {
                     st = new StringTokenizer(br.readLine());
                 } catch (IOException e) {
@@ -77,7 +79,7 @@ public class PathFinding_11403 {
             return st.nextToken();
         }
 
-        int nextInt(){
+        int nextInt() {
             return Integer.parseInt(next());
         }
     }
