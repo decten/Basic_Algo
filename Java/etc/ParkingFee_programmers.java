@@ -1,6 +1,7 @@
 package etc;
 
 import java.util.*;
+
 public class ParkingFee_programmers {
 
     static int[] solution(int[] fees, String[] records) {
@@ -19,7 +20,7 @@ public class ParkingFee_programmers {
                 feeMap.put(carNumber,
                     feeMap.getOrDefault(carNumber, 0) + time - carMap.get(carNumber));
                 carOut[carNumber] = true;
-            }else{
+            } else {
                 carMap.put(carNumber, time);
                 carOut[carNumber] = false;
             }
@@ -34,11 +35,11 @@ public class ParkingFee_programmers {
                 feeMap.put(key, feeMap.getOrDefault(key, 0) + (23 * 60 + 59) - carMap.get(key));
             }
             if ((int) Math.ceil((feeMap.get(key) - fees[0]) / (float) fees[2]) * fees[3] > 0) {
-                answer[i] = fees[1] + (int) Math.ceil((feeMap.get(key) - fees[0]) / (float) fees[2]) * fees[3];
+                answer[i] = fees[1]
+                    + (int) Math.ceil((feeMap.get(key) - fees[0]) / (float) fees[2]) * fees[3];
             }
             i++;
         }
-
 
         return answer;
     }
