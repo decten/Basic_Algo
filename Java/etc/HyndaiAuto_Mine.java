@@ -6,7 +6,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class HyndaiAuto_Mine {
-    static int N,M;
+
+    static int N, M;
     static int[][] array;
     static int[][] H_shape =
         {
@@ -21,7 +22,7 @@ public class HyndaiAuto_Mine {
             {1, 1, 1}
         };
 
-    static void input(){
+    static void input() {
         FastReader scan = new FastReader();
         N = scan.nextInt();
         M = scan.nextInt();
@@ -34,7 +35,7 @@ public class HyndaiAuto_Mine {
         }
     }
 
-    static void answer(){
+    static void answer() {
         int max_resource = 0;
 
         // 0~N-3까지
@@ -59,6 +60,7 @@ public class HyndaiAuto_Mine {
 
         System.out.println(max_resource);
     }
+
     public static void main(String args[]) {
         input();
         answer();
