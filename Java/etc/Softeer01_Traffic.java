@@ -1,46 +1,50 @@
 package etc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Softeer01_Traffic {
+
     static int N;
     static int T;
     static int[][] a;
     static int[][][] signal = {
         {{}},
 
-        {{0,-1},{1,0},{0,1}},
-        {{-1,0},{0,-1},{1,0}},
-        {{0,-1},{-1,0},{0,1}},
-        {{-1,0},{0,1},{1,0}},
+        {{0, -1}, {1, 0}, {0, 1}},
+        {{-1, 0}, {0, -1}, {1, 0}},
+        {{0, -1}, {-1, 0}, {0, 1}},
+        {{-1, 0}, {0, 1}, {1, 0}},
 
-        {{0,-1},{1,0}},
-        {{-1,0},{0,-1}},
-        {{-1,0},{0,1}},
-        {{0,1},{1,0}},
+        {{0, -1}, {1, 0}},
+        {{-1, 0}, {0, -1}},
+        {{-1, 0}, {0, 1}},
+        {{0, 1}, {1, 0}},
 
-        {{1,0},{0,1}},
-        {{0,-1},{1,0}},
-        {{0,-1},{-1,0}},
-        {{-1,0},{0,1}}
+        {{1, 0}, {0, 1}},
+        {{0, -1}, {1, 0}},
+        {{0, -1}, {-1, 0}},
+        {{-1, 0}, {0, 1}}
     };
     static boolean visit[][];
     static int ans;
 
-    static void input(){
+    static void input() {
         FastReader scan = new FastReader();
         N = scan.nextInt();
         T = scan.nextInt();
-        a = new int[N+1][N+1];
-        visit = new boolean[N+1][N+1];
+        a = new int[N + 1][N + 1];
+        visit = new boolean[N + 1][N + 1];
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
                 a[i][j] = scan.nextInt();
             }
         }
     }
-    static void dfs(int x, int y, int time){
+
+    static void dfs(int x, int y, int time) {
         visit[x][y] = true;
         time++;
         ans++;
@@ -51,17 +55,24 @@ public class Softeer01_Traffic {
                 int nx = x + signal[x][i][0];
                 int ny = y + signal[x][i][1];
 
-                if(time > T) return;
-                if(nx > N || ny > N || nx < 1 || ny < 1) continue;
-                if(visit[nx][ny]) continue;
+                if (time > T) {
+                    return;
+                }
+                if (nx > N || ny > N || nx < 1 || ny < 1) {
+                    continue;
+                }
+                if (visit[nx][ny]) {
+                    continue;
+                }
 
-                dfs(nx,ny,time);
+                dfs(nx, ny, time);
 
             }
         }
 
     }
-    static void ans(){
+
+    static void ans() {
         int time = 0;
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
@@ -70,29 +81,32 @@ public class Softeer01_Traffic {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         input();
         ans();
     }
 
-    static class FastReader{
+    static class FastReader {
+
         BufferedReader br;
         StringTokenizer st;
 
-        FastReader(){
+        FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
-        String next(){
-            while(st==null||!st.hasMoreElements()){
-                try{
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
                     st = new StringTokenizer(br.readLine());
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             return st.nextToken();
         }
-        int nextInt(){
+
+        int nextInt() {
             return Integer.parseInt(next());
         }
     }
