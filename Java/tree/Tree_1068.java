@@ -4,22 +4,25 @@ import java.util.*;
 import java.io.*;
 
 public class Tree_1068 {
+
     static FastReader scan = new FastReader();
     static int N, root, erased;
     static ArrayList<Integer>[] child;
     static int[] leaf;
 
-    static void input(){
+    static void input() {
         N = scan.nextInt();
         //이번 문제는 인덱스가 0부터 주어짐
         child = new ArrayList[N];
         leaf = new int[N];
 
-        for (int i = 0; i < N; i++) child[i] = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            child[i] = new ArrayList<>();
+        }
         for (int i = 0; i < N; i++) {
             int par = scan.nextInt();
             //루트는 subtree 안 만듦
-            if (par==-1){
+            if (par == -1) {
                 root = i;
                 continue;
             }
@@ -28,29 +31,36 @@ public class Tree_1068 {
         erased = scan.nextInt();
 
     }
-    static void dfs(int x){
-        if(child[x].isEmpty()){
-           leaf[x] = 1;
+
+    static void dfs(int x) {
+        if (child[x].isEmpty()) {
+            leaf[x] = 1;
         }
-        for (int y:child[x]) {
+        for (int y : child[x]) {
             dfs(y);
             leaf[x] += leaf[y];
         }
     }
-    static void solve(){
+
+    static void solve() {
         for (int i = 0; i < N; i++) {
-            if(child[i].contains(erased)){
+            if (child[i].contains(erased)) {
                 child[i].remove(child[i].indexOf(erased));
             }
         }
-        if (root!=erased) dfs(root);
+        if (root != erased) {
+            dfs(root);
+        }
         System.out.println(leaf[root]);
     }
+
     public static void main(String[] args) {
         input();
         solve();
     }
+
     static class FastReader {
+
         BufferedReader br;
         StringTokenizer st;
 
