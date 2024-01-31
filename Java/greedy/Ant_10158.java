@@ -4,8 +4,9 @@ import java.util.*;
 import java.io.*;
 
 public class Ant_10158 {
-    static int W,H,P,Q,T;
-    static void input(){
+    static int W, H, P, Q, T;
+
+    static void input() {
         FastReader scan = new FastReader();
         W = scan.nextInt();
         H = scan.nextInt();
@@ -13,7 +14,8 @@ public class Ant_10158 {
         Q = scan.nextInt();
         T = scan.nextInt();
     }
-    static void answer(){
+
+    static void answer() {
         int p = (P + T) % (2 * W); //주기
         int q = (Q + T) % (2 * H);
         if (p > W) p = 2 * W - p;
@@ -21,30 +23,32 @@ public class Ant_10158 {
         System.out.println(p + " " + q);
 
     }
-    public static void main(String args[]){
+
+    public static void main(String args[]) {
         input();
         answer();
     }
-    public static class FastReader{
+
+    public static class FastReader {
         BufferedReader br;
         StringTokenizer st;
 
-        FastReader(){
+        FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        String next(){
-            while(st==null||!st.hasMoreElements()){
-                try{
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
                     st = new StringTokenizer(br.readLine());
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             return st.nextToken();
         }
 
-        int nextInt(){
+        int nextInt() {
             return Integer.parseInt(next());
         }
     }
