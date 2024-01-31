@@ -9,36 +9,41 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class NM1_15649 {
-    static int N,M;
+
+    static int N, M;
     static int[] selected, used;
 
     static StringBuilder sb = new StringBuilder();
 
-    static void input(){
+    static void input() {
         FastReader scan = new FastReader();
         N = scan.nextInt();
         M = scan.nextInt();
         //selected는 M까지 돌고, used는 N까지 돌아야 함
-        selected = new int[M+1];
-        used = new int[N+1];
+        selected = new int[M + 1];
+        used = new int[N + 1];
     }
 
-// M개를 고름
-    static void rec_func(int k){
-        if (k==M+1){
+    // M개를 고름
+    static void rec_func(int k) {
+        if (k == M + 1) {
             //selected[1...M]
-            for (int i = 1; i<=M; i++) sb.append(selected[i]).append(' ');
+            for (int i = 1; i <= M; i++) {
+                sb.append(selected[i]).append(' ');
+            }
             sb.append('\n');
-        }else{
-            for(int cand = 1; cand<=N; cand++){
-                if(used[cand] == 1) continue;
+        } else {
+            for (int cand = 1; cand <= N; cand++) {
+                if (used[cand] == 1) {
+                    continue;
+                }
 
                 //k번째에 cand가 올 수 있으면
                 selected[k] = cand;
                 //select에 넣은 수 마킹
                 used[cand] = 1;
                 //k+1번부터 M번까지 채워준다
-                rec_func(k+1);
+                rec_func(k + 1);
                 selected[k] = 0;
                 used[cand] = 0;
             }
@@ -53,37 +58,43 @@ public class NM1_15649 {
         System.out.println(sb.toString());
     }
 
-    static class FastReader{
+    static class FastReader {
+
         BufferedReader br;
         StringTokenizer st;
 
-        public FastReader(){
+        public FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
-        public FastReader(String s) throws FileNotFoundException{
+
+        public FastReader(String s) throws FileNotFoundException {
             br = new BufferedReader(new FileReader(new File(s)));
         }
-        String next(){
-            while (st == null || !st.hasMoreElements()){
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
                 try {
                     st = new StringTokenizer(br.readLine());
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             return st.nextToken();
         }
-        int nextInt(){
+
+        int nextInt() {
             return Integer.parseInt(next());
         }
-        double nextDouble(){
+
+        double nextDouble() {
             return Double.parseDouble(next());
         }
-        String nextLine(){
+
+        String nextLine() {
             String str = "";
-            try{
+            try {
                 str = br.readLine();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             return str;
