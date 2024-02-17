@@ -3,8 +3,6 @@ package bruteforce;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class LadderManipulation_15684 {
@@ -17,68 +15,69 @@ public class LadderManipulation_15684 {
         N = scan.nextInt();
         M = scan.nextInt();
         H = scan.nextInt();
-        visited = new boolean[N + 1][H + 1];
-        ans = -1;
+        visited = new boolean[H + 1][N + 1];
+        ans = Integer.MAX_VALUE;
 
 
         for (int i = 0; i < M; i++) {
             int row = scan.nextInt();
-            int line = scan.nextInt();
+            int col = scan.nextInt();
 
-            visited[line][row] = true;
+            visited[row][col] = true;
         }
     }
 
     static void solve() {
-        int cnt = 0;
 
         if (M == 0 || check()) {
             ans = 0;
             return;
         }
 
-        dfs(1, 1, cnt);
+        dfs(1, 0);
 
     }
 
     private static boolean check() {
-        for (int i = 1; i <= N; i++) {
-            int current = i;
-            for (int j = 1; j <= H; j++) {
-                if (visited[i - 1][j]) {
-                    i--;
-                } else if (visited[i][j]) {
-                    i++;
+        for (int col = 1; col <= N; col++) {
+            int current = col;
+            for (int row = 1; row <= H; row++) {
+                if (visited[row][current - 1]) {
+                    current--;
+                } else if (visited[row][current]) {
+                    current++;
                 }
             }
-            if (current != i) {
+            if (current != col) {
                 return false;
             }
         }
         return true;
     }
 
-    static void dfs(int i, int j, int cnt) {
-        System.out.println(i + " " + j + " " + cnt);
-        if (i > N || j > H || cnt == 3) {
+    static void dfs(int current, int cnt) {
+        //문제처럼 왼->오만 그릴 수 있도록 함
+        if (cnt > 3) {
             return;
-        }
-
-        if (visited[i][j] ||
-            visited[i - 1][j] ||
-            visited[i + 1][j]) {
-            dfs(i + 1, j + 1, cnt);
-            dfs(i, j + 1, cnt);
         }
 
         if (check()) {
-            ans = cnt;
+            ans = Math.min(cnt, ans);
             return;
         }
 
-        visited[i][j + 1] = true;
-        dfs(i, j + 1, cnt + 1);
-        visited[i][j + 1] = false;
+        for (int row = current; row <= H; row++) {
+            for (int col = 1; col < N; col++) {
+                if (visited[row][col] || visited[row][col - 1] || visited[row][col + 1]) {
+                    continue;
+                }
+
+                visited[row][col] = true;
+                dfs(row, cnt + 1);
+                visited[row][col] = false;
+
+            }
+        }
 
     }
 
@@ -86,7 +85,12 @@ public class LadderManipulation_15684 {
         input();
         solve();
 
-        System.out.println(ans);
+        if (ans > 3) {
+            System.out.println(-1);
+        } else {
+            System.out.println(ans);
+        }
+
     }
 
     static class FastReader {
